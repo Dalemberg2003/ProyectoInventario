@@ -1,4 +1,4 @@
-package inventario;
+package formulario;
 
 import com.sun.awt.AWTUtilities;
 import java.awt.Shape;

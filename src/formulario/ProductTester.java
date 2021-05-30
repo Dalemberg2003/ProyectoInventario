@@ -1,4 +1,4 @@
-package inventario;
+package formulario;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package inventario;
+package formulario;
 
 /**
  *
@@ -161,12 +161,8 @@ public class MostrarProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cerrar;
-    private javax.swing.JButton btn_cerrar1;
     private javax.swing.JButton btn_cerrar2;
     private javax.swing.JButton btn_minimizar;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbl_fondo;

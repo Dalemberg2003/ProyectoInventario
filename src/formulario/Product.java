@@ -1,4 +1,4 @@
-package inventario;
+package formulario;
 
 public class Product {
 //Declaraciones de campo de instancia
