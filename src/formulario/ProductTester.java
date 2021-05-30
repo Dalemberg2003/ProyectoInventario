@@ -27,7 +27,7 @@ public class ProductTester {
         int maxsize=-1;
         do {
             try {
-                maxsize=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el numero de productos a ingresar:/n"+
+                maxsize=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el numero de productos a ingresar:\n"+
                                                                            "Introduzca 0 si no desea agregar productos:" ));
                 if (maxsize < 0) {
                     JOptionPane.showMessageDialog(null,"Valor incorrecto introducido");
