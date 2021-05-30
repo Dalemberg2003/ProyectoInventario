@@ -80,11 +80,13 @@ public class Product {
     //sustituir método toString() de la clase Object    
     //para permitir la visualización de cada objeto en la consola
     public String toString() {
-        return "\n\nNúmero de elemento                : " + this.itemNumber
+        
+        return "\n*---------------------------------------------------------------*\n"
+                + "\nNúmero de elemento                : " + this.itemNumber
                 + "\nNombre                : " + this.name
                 + "\nCantidad en existencia: " + this.qtyInStock
                 + "\nPrecio                : " + this.price
                 + "\nValor de existencias  : " + getInventoryValue()
-                + "\ndel producto          : " + (this.active ? "Activado" : "Desactivado");
+                + "\ndel producto          : " + (this.active ? "Activado" : "Desactivado\n");
     }//final del método toString    
 }

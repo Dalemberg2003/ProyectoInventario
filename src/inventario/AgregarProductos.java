@@ -9,15 +9,34 @@ package inventario;
  *
  * @author Usuario
  */
-public class Inventario extends javax.swing.JFrame {
+public class AgregarProductos extends javax.swing.JFrame {
 
     /**
      * Creates new form Inventario
      */
-    public Inventario() {
+    int numeroProdut;
+    int acum=1;
+    ProductTester product = ProductTester.getAdm();
+        
+    public AgregarProductos() {
         initComponents();
+        setSize(507, 339);
         setLocationRelativeTo(null);
+        setResizable(false);
+        this.lbl_productos.setText("Producto #1");
     }
+    
+    public AgregarProductos(int numeroProductos){
+        initComponents();
+        setSize(507, 339);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        this.lbl_productos.setText("Producto #1");
+        numeroProdut = numeroProductos;
+    }
+ 
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,37 +47,159 @@ public class Inventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txt_nombreProducto = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_cantidad = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_precio = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txt_numeroProducto = new javax.swing.JTextField();
+        btn_guardar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        btn_cerrar = new javax.swing.JButton();
+        btn_minimizar = new javax.swing.JButton();
+        lbl_productos = new javax.swing.JLabel();
+        lbl_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Nombre del producto");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        getContentPane().add(txt_nombreProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 140, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Cantidad ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        getContentPane().add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 140, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Precio");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+        getContentPane().add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 140, -1));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Numero del producto");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+
+        txt_numeroProducto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txt_numeroProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 40, -1));
+
+        btn_guardar.setBackground(new java.awt.Color(51, 51, 51));
+        btn_guardar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_guardar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_guardar.setText("Guardar");
+        btn_guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 180, 45));
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel1MouseDragged(evt);
+            }
+        });
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel1MouseEntered(evt);
+            }
+        });
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_cancel_40px.png"))); // NOI18N
+        btn_cerrar.setBorder(null);
+        btn_cerrar.setBorderPainted(false);
+        btn_cerrar.setContentAreaFilled(false);
+        btn_cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_cerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_cancel_50px.png"))); // NOI18N
+        btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_cerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 0, 40, 40));
+
+        btn_minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_macos_minimize_40px.png"))); // NOI18N
+        btn_minimizar.setBorder(null);
+        btn_minimizar.setBorderPainted(false);
+        btn_minimizar.setContentAreaFilled(false);
+        btn_minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_minimizar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_macos_minimize_50px.png"))); // NOI18N
+        btn_minimizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_minimizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 0, 40, 40));
+
+        lbl_productos.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_productos.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lbl_productos.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_productos.setText("Producto");
+        jPanel1.add(lbl_productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 190, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 40));
+
+        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img1.jpeg"))); // NOI18N
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 507, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_cerrarActionPerformed
+
+    private void btn_minimizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_minimizarActionPerformed
+        this.setState(ICONIFIED);
+    }//GEN-LAST:event_btn_minimizarActionPerformed
+    
+    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
+        int xx = evt.getXOnScreen();
+        int xy = evt.getYOnScreen();
+
+        this.setLocation(xx - x, xy - y);
+    }//GEN-LAST:event_jPanel1MouseDragged
+
+        int x,y;
+    private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
+        x = evt.getX();
+        y = evt.getY();
+    }//GEN-LAST:event_jPanel1MouseEntered
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+       String nombre= txt_nombreProducto.getText().trim();
+       int cantidad= Integer.parseInt(txt_cantidad.getText().trim());
+       double precio= Double.parseDouble(txt_precio.getText().trim());
+       int numeroElem= Integer.parseInt(txt_numeroProducto.getText().trim());
+      
+       product.guardarProducto(nombre,cantidad,precio,numeroElem);
+       
+       
+       
+       if(acum==numeroProdut){
+           IngresarSistema sistema = new IngresarSistema();
+           sistema.setVisible(true);
+           this.setVisible(false);
+       }
+       
+       acum++;
+       this.lbl_productos.setText("Producto #"+acum);          
+       Limpiar();
+              
+    }//GEN-LAST:event_btn_guardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,25 +218,47 @@ public class Inventario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AgregarProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        //</editor-fold>
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Inventario().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {            
+            public void run() {                
+                new AgregarProductos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cerrar;
+    private javax.swing.JButton btn_guardar;
+    private javax.swing.JButton btn_minimizar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_fondo;
+    private javax.swing.JLabel lbl_productos;
+    private javax.swing.JTextField txt_cantidad;
+    private javax.swing.JTextField txt_nombreProducto;
+    private javax.swing.JTextField txt_numeroProducto;
+    private javax.swing.JTextField txt_precio;
     // End of variables declaration//GEN-END:variables
+
+    public void Limpiar(){
+        txt_nombreProducto.setText("");
+        txt_numeroProducto.setText("");
+        txt_cantidad.setText("");
+        txt_precio.setText("");
+        
+        txt_nombreProducto.requestFocus();
+    }
 }

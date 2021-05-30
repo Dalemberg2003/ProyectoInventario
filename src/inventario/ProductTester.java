@@ -1,56 +1,61 @@
 package inventario;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 public class ProductTester {
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        //aqui empieza el codigo
-        int maxsize = -1;
-        int tempNumber;        
-        String tempName;
-        int tempQty;
-        double tempPrice;
+    ArrayList<Product> productos;
+    private static ProductTester adm= null;
+    private ProductTester() {
+        productos =  new ArrayList<>();
+    }
+    
+    public static ProductTester getAdm(){
+        if(adm==null){
+            adm= new ProductTester();
+        } 
+        return adm;
+    }
+    
+    
+    public int PedirNumProductos() {
+        
+        int maxsize=-1;
         do {
             try {
-                System.out.println("*-------------------------------------------*");
-                System.out.println("Ingrese el numero de productos a agregar:");
-                System.out.print("Introduzca 0 si no desea agregar productos: ");
-                maxsize = in.nextInt();
+                maxsize=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese el numero de productos a ingresar:/n"+
+                                                                           "Introduzca 0 si no desea agregar productos:" ));
                 if (maxsize < 0) {
-                    System.out.println("Valor incorrecto introducido");
+                    JOptionPane.showMessageDialog(null,"Valor incorrecto introducido");
                 }
             } catch (InputMismatchException a) {
-                System.out.println("Tipo de dato incorrecto introducido");
-                in.nextLine();
+                JOptionPane.showMessageDialog(null,"Tipo de dato incorrecto introducido");
             } catch (Exception e) {
-                System.err.println(e);
-                in.nextLine();
+                JOptionPane.showMessageDialog(null,e);
             }
         } while (maxsize < 0);
-        if (maxsize == 0) {
-            System.out.println("No se requieren productos");
-        } else {
-            Product[] productos = new Product[maxsize];
-            for (int i = 0; i < maxsize; i++) {
-                in.nextLine();
-                System.out.print("\n\nIntroduzca en nombre del producto: ");
-                tempName = in.nextLine();
-                System.out.print("Introduzca la cantidad de existencias de este producto: ");
-                tempQty = in.nextInt();
-                System.out.print("Introduzca el precio de este producto: ");
-                tempPrice = in.nextDouble();
-                System.out.print("Introduzca el número de elemento ");
-                tempNumber = in.nextInt();
-                Product p = new Product(tempNumber, tempName, tempQty, tempPrice);
-                productos[i] = p;                                
-            }
-            for(Product p: productos){
-                System.out.println(p.toString());    
-            }
-        }       
-        in.close();
-    }//Fin del metodo main
+        
+        return maxsize;
+    }
+
+    public void guardarProducto(String nombre, int cantidad, double precio, int numeroElem) {                    
+                Product p = new Product(numeroElem, nombre, cantidad, precio);
+                productos.add(p);
+    }
+    
+    public void MostraProductos(JTextArea area){
+        String datos="";
+        for(Product p: productos){            
+          datos+=p.toString();  
+        }
+        area.setText(datos);
+    }
+    
+    public int numeroProductList(){
+        return productos.size();
+    }
 }
